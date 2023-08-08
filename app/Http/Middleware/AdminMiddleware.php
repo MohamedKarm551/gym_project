@@ -12,12 +12,12 @@ class AdminMiddleware
 
     public function handle(Request $request, Closure $next)
     {
-        if (true) {
-            dd($request);
-                // if(Auth::user()->is_admin == 1){
-                //     return $next($request);
-                //     dd($request);
-                // }
+        if (auth()->check()) {
+            // dd($request);
+                if(Auth::user()->is_admin == 1){
+                    return $next($request);
+                    // dd($request);
+                }
                 
             }
         

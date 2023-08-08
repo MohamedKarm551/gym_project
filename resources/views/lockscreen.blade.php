@@ -27,7 +27,7 @@
 											<div class="main-signin-header">
 												<div class="avatar avatar-xxl avatar-xxl mx-auto text-center mb-2"><img alt="" class="avatar avatar-xxl rounded-circle  mt-2 mb-2 " src="{{URL::asset('assets/img/faces/6.jpg')}}"></div>
 												<div class="mx-auto text-center mt-4 mg-b-20">
-													<h5 class="mg-b-10 tx-16">Petey Cruiser</h5>
+													<h5 class="mg-b-10 tx-16">{{Auth::user()->name}}</h5>
 													<p class="tx-13 text-muted">Enter Your Password to View your Screen</p>
 												</div>
 												<form action="#">

@@ -50,7 +50,7 @@
 										</div>
 										<div class="d-flex justify-content-between mg-b-20">
 											<div>
-												<h5 class="main-profile-name">Petey Cruiser</h5>
+												<h5 class="main-profile-name">{{Auth::user()->name}}</h5>
 												<p class="main-profile-name-text">Web Designer</p>
 											</div>
 										</div>
@@ -213,7 +213,7 @@
 								<div class="tab-content border-left border-bottom border-right border-top-0 p-4">
 									<div class="tab-pane active" id="home">
 										<h4 class="tx-15 text-uppercase mb-3">BIOdata</h4>
-										<p class="m-b-5">Hi I'm Petey Cruiser,has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
+										<p class="m-b-5">Hi I'm {{Auth::user()->name}},has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
 										<div class="m-t-30">
 											<h4 class="tx-15 text-uppercase mt-3">Experience</h4>
 											<div class=" p-t-10">

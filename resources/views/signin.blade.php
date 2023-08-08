@@ -23,7 +23,7 @@
 						<div class="row">
 							<div class="col-md-10 col-lg-10 col-xl-9 mx-auto">
 								<div class="card-sigin">
-									<div class="mb-5 d-flex"> <a href="{{ url('/' . $page='index') }}"><img src="{{URL::asset('assets/img/brand/favicon.png')}}" class="sign-favicon ht-40" alt="logo"></a><h1 class="main-logo1 ml-1 mr-0 my-auto tx-28">Va<span>le</span>x</h1></div>
+									<div class="mb-5 d-flex"> <a href="{{ url('/' . $page='index') }}"><img src="{{URL::asset('img/signin.jpg')}}" class="sign-favicon ht-40" alt="logo"></a><h1 class="main-logo1 ml-1 mr-0 my-auto tx-28">sign<span>in</span> Fox Gym</h1></div>
 									<div class="card-sigin">
 										<div class="main-signup-header">
 											<h2>Welcome back!</h2>
@@ -47,7 +47,10 @@
 											</form>
 											<div class="main-signin-footer mt-5">
 												<p><a href="">Forgot password?</a></p>
-												<p>Don't have an account? <a href="{{ url('/' . $page='signup') }}">Create an Account</a></p>
+
+												<p>Don't have an account?  
+													<a href="{{ url('/' . $page='signup') }}">Create an Account</a>
+												</p>
 											</div>
 										</div>
 									</div>

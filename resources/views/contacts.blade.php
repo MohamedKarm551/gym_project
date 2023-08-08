@@ -227,7 +227,7 @@
 											<img alt="avatar" src="{{URL::asset('assets/img/faces/6.jpg')}}"> <a href=""><i class="fe fe-camera"></i></a>
 										</div>
 										<div class="media-body">
-											<h5>Petey Cruiser</h5>
+											<h5>{{Auth::user()->name}}</h5>
 											<p>Web Designer</p>
 											<nav class="contact-info">
 												<a href="#" class="contact-icon border tx-inverse" data-toggle="tooltip" title="Call"><i class="fe fe-phone"></i></a>

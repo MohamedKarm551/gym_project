@@ -63,7 +63,7 @@
 											<div class="drop-down-profile" data-toggle="dropdown"><img alt="" class="rounded-circle avatar avatar-md " src="{{URL::asset('assets/img/faces/1.jpg')}}"><span class="assigned-task bg-purple">9</span></div>
 											<div class="dropdown-menu tx-13">
 												<div class="main-header-profile">
-													<div class="tx-16 h5 mg-b-0">Petey Cruiser</div>
+													<div class="tx-16 h5 mg-b-0">{{Auth::user()->name}}</div>
 													<span>Web Designer</span>
 												</div>
 												<a class="dropdown-item" href="#">View Total Tasks</a>
@@ -112,7 +112,7 @@
 											<div class="drop-down-profile" data-toggle="dropdown"><img alt="" class="rounded-circle avatar avatar-md " src="{{URL::asset('assets/img/faces/12.jpg')}}"><span class="assigned-task bg-info">2</span></div>
 											<div class="dropdown-menu tx-13">
 												<div class="main-header-profile">
-													<div class="tx-16 h5 mg-b-0">Petey Cruiser</div>
+													<div class="tx-16 h5 mg-b-0">{{Auth::user()->name}}</div>
 													<span>Web Designer</span>
 												</div>
 												<a class="dropdown-item" href="#">View Total Tasks</a>
@@ -161,7 +161,7 @@
 											<div class="drop-down-profile" data-toggle="dropdown"><img alt="" class="rounded-circle avatar avatar-md " src="{{URL::asset('assets/img/faces/9.jpg')}}"><span class="assigned-task bg-danger">6</span></div>
 											<div class="dropdown-menu tx-13">
 												<div class="main-header-profile">
-													<div class="tx-16 h5 mg-b-0">Petey Cruiser</div>
+													<div class="tx-16 h5 mg-b-0">{{Auth::user()->name}}</div>
 													<span>Web Designer</span>
 												</div>
 												<a class="dropdown-item" href="#">View Total Tasks</a>
@@ -210,7 +210,7 @@
 											<div class="drop-down-profile" data-toggle="dropdown"><img alt="" class="rounded-circle avatar avatar-md " src="{{URL::asset('assets/img/faces/4.jpg')}}"><span class="assigned-task bg-info">9</span></div>
 											<div class="dropdown-menu tx-13">
 												<div class="main-header-profile">
-													<div class="tx-16 h5 mg-b-0">Petey Cruiser</div>
+													<div class="tx-16 h5 mg-b-0">{{Auth::user()->name}}</div>
 													<span>Web Designer</span>
 												</div>
 												<a class="dropdown-item" href="#">View Total Tasks</a>
@@ -259,7 +259,7 @@
 											<div class=" drop-down-profile" data-toggle="dropdown"><img alt="" class="rounded-circle avatar avatar-md" src="{{URL::asset('assets/img/faces/15.jpg')}}"><span class="assigned-task bg-primary">7</span></div>
 											<div class="dropdown-menu tx-13">
 												<div class="main-header-profile">
-													<div class="tx-16 h5 mg-b-0">Petey Cruiser</div>
+													<div class="tx-16 h5 mg-b-0">{{Auth::user()->name}}</div>
 													<span>Web Designer</span>
 												</div>
 												<a class="dropdown-item" href="#">View Total Tasks</a>
@@ -308,7 +308,7 @@
 											<div class="drop-down-profile" data-toggle="dropdown"><img alt="" class="rounded-circle avatar avatar-md " src="{{URL::asset('assets/img/faces/5.jpg')}}"><span class="assigned-task bg-info">4</span></div>
 											<div class="dropdown-menu tx-13">
 												<div class="main-header-profile">
-													<div class="tx-16 h5 mg-b-0">Petey Cruiser</div>
+													<div class="tx-16 h5 mg-b-0">{{Auth::user()->name}}</div>
 													<span>Web Designer</span>
 												</div>
 												<a class="dropdown-item" href="#">View Total Tasks</a>

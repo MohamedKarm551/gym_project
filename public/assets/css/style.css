@@ -21547,7 +21547,12 @@ object, embed, video {
     z-index: 1;
     display: flex;
     margin-bottom: 27px;
-    background: #ecf0fa; }
+    background: #ecf0fa;     justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
+.sidebar-remove{color: red;
+  font-size: 20px;}
   .sidebar .tabs-menu-body {
     margin-top: 56px; }
   .sidebar .tabs-menu ul li {

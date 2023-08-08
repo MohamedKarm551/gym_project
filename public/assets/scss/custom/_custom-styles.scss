@@ -385,6 +385,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   position: relative;
+  direction: ltr;
 }
 
 .main-body::before {
