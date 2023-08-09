@@ -38,7 +38,15 @@
 											</div>
 											<div class="form-group">
 												<label>Password</label> <input class="form-control" placeholder="Enter your password" name="password"  type="password">
-											</div><button class="btn btn-main-primary btn-block">Create Account</button>
+											</div>
+											<div class="form-group">
+												<label>Registration Type</label>
+												<select class="form-control" name="registration_type">
+													<option value="user">User</option>
+													<option value="trainer">Trainer</option>
+												</select>
+											</div>
+											<button class="btn btn-main-primary btn-block">Create Account</button>
 											<div class="row row-xs">
 												<div class="col-sm-6">
 													<button class="btn btn-block"><i class="fab fa-facebook-f"></i> Signup with Facebook</button>

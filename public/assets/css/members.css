@@ -1,1 +1,13 @@
-/*  */
+h1{
+    color: #000;
+    position: relative;
+    text-align: center;
+    padding: 10px;
+    background: antiquewhite;
+}
+.logout {
+    text-align: center;
+    width: 20%;
+    margin: 3px auto;
+    display: block !important;
+}
