@@ -18,12 +18,14 @@ class LoginController extends Controller
         $credentials =  $request->only('email', 'password'); //only this from request
 
         if (Auth::attempt($credentials)) { // test with database table users 
+            $userId = Auth::user()->id;
             if(Auth::user()->is_admin){
                 return view('index');
 
             }
-            return view('member');
-
+        //not admin but member ot
+            return redirect('/view/member')->with('userId', $userId); 
+            // return redirect('/view/member',['userId'=>$userId]); 
         }
         // return redirect("login");
         elseif (true) {

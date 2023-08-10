@@ -22,7 +22,7 @@ class RegisterController extends Controller
         ]);
         $registrationType = $request->registration_type;//user or trainer
         if ($registrationType === 'user') {
-        DB::table("users")->insert($request->except("_token"));
+        DB::table("users")->insert($request->except(["_token","registration_type"]));
         }
         elseif ($registrationType === 'trainer') {
         // Store the user in the trainers table

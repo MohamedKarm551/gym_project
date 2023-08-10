@@ -2,8 +2,8 @@
 <html>
 <head>
     <link rel="stylesheet" href="{{asset('assets/css/members.css')}}">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
 
   <title>قائمتي     </title>
 
@@ -14,7 +14,8 @@
     <div class="overlay overlay-bg"></div>
     <div class="container">
       <h1>{{Auth::user()->name}}</h1>
-      <section class="parallux-area pt-100 pb-100 relative"     data-parallax="scroll" data-image-src="img/gym01.png">
+      <a href="/logout" class="logout btn btn-danger relative">logout</a>
+      <section class="parallux-area pt-100 pb-100 relative"     data-parallax="scroll" data-image-src="{{asset('img/gym01.png')}}">
                       
         <div class="container">
         <div class="row justify-content-end">
@@ -42,7 +43,7 @@
             <li>Bill 3</li>
           </ul>
         </div>
-      <section class="parallux-area pt-100 pb-100 relative"     data-parallax="scroll" data-image-src="img/payment.png">
+      <section class="parallux-area pt-100 pb-100 relative"     data-parallax="scroll" data-image-src="{{asset('img/payment.png')}}">
                       
         <div class="container">
           <h2>Online Payment</h2>
@@ -70,36 +71,21 @@
             <div class="exercise-list-container p-4">
               <ul class="list-group exercise-list">
                 <!-- List of recorded exercises will be dynamically added here -->
-                <li class="list-group-item d-flex justify-content-between align-items-center mb-2">
-                  <div>
-                    <span class="exercise-name">Exercise 1</span>
-                    <span class="exercise-date">2023-08-08</span>
-                  </div>
-                  <div>
-                    <button class="btn btn-primary edit-btn">Edit</button>
-                    <button class="btn btn-danger delete-btn">Delete</button>
-                  </div>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center mb-2">
-                  <div>
-                    <span class="exercise-name">Exercise 2</span>
-                    <span class="exercise-date">2023-08-09</span>
-                  </div>
-                  <div>
-                    <button class="btn btn-primary edit-btn">Edit</button>
-                    <button class="btn btn-danger delete-btn">Delete</button>
-                  </div>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center mb-2">
-                  <div>
-                    <span class="exercise-name">Exercise 3</span>
-                    <span class="exercise-date">2023-08-10</span>
-                  </div>
-                  <div>
-                    <button class="btn btn-primary edit-btn">Edit</button>
-                    <button class="btn btn-danger delete-btn">Delete</button>
-                  </div>
-                </li>
+        @foreach ($exercises as $exercise)
+        <li class="list-group-item d-flex justify-content-between align-items-center mb-2">
+            <div>
+                <span class="exercise-name"><strong style="
+                  font-weight: bold;
+              ">{{ $exercise->name }}</strong></span> 
+                at
+                <span class="exercise-date">{{ $exercise->created_at}}</span>
+            </div>
+            <div>
+                <button class="btn btn-primary edit-btn">Edit</button>
+                <button class="btn btn-danger delete-btn">Delete</button>
+            </div>
+        </li>
+        @endforeach
               </ul>
             </div>
             <form class="exercise-form exercise-list-container p-4">
@@ -129,14 +115,14 @@
         </section>
       </div>
     </div>
-    <script src="js/vendor/jquery-2.2.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="js/vendor/bootstrap.min.js"></script>
-    <script src="js/jquery.ajaxchimp.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/parallax.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/main.js"></script></html>
+    <script src="{{asset('js/vendor/jquery-2.2.4.min.js')}}"></script>
+    <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js')}}" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="{{asset('js/vendor/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/jquery.ajaxchimp.min.js')}}"></script>
+    <script src="{{asset('js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('js/jquery.nice-select.min.js')}}"></script>
+    <script src="{{asset('js/parallax.min.js')}}"></script>
+    <script src="{{asset('js/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{asset('js/main.js')}}"></script></html>
 </body>
 </html>
