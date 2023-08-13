@@ -134,8 +134,17 @@ $(document).ready(function() {
   });
 //   when i click on .add_exercise  that show modal .add_exercise_modal
   $(document).ready(function() {
-    $('.add_exercise').click(function() {
-      // Code to show the modal here
-      $('.add_exercise_modal').show();
+    $('.editExercise').click(function() {
+        // Code to show the modal here
+       $('.edit_exercise_modal').show();
+        // console.log("test");
     });
+    document.addEventListener('click', function(event) {
+        if (event.target.matches('[data-dismiss="modal"]')) {
+          var modal = event.target.closest('.modal');
+          if (modal) {
+            modal.style.display = 'none';
+          }
+        }
+      });
   });

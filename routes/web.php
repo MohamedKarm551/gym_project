@@ -52,6 +52,14 @@ Route::get('/videos',function(){return view('videos');});
 //                                     });
 // });
 Route::get('/view/member',[members::class,'view']);
+Route::post('/storeExercise',[members::class,'store']);
+Route::post('/editExercise/{id}',[members::class,'edit']);
+// Route::post('/updateExercise/{id}',[members::class,'update']);
+Route::get('/deleteExercise/{id}',[members::class,'delete']);
+
+
+
+
 // Routes with authentication (dashboard and other pages)
 Route::group(['middleware' => ['auth','admin']], function () {
     // Your dashboard and other authenticated routes here...

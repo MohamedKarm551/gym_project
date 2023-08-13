@@ -23,14 +23,37 @@ class members extends Controller
         // ->where('user_id', $userId)
         // ->get();
         // 02-in model :   
-        $userId = session()->get('userId');
+        // $userId = session()->get('userId'); //error when reload page session expire
+        $userId = auth()->user()->id;
         $user = User::findOrFail($userId);
         $exercises = $user->exercises()->get();
         //  dd($exercises[1]->name);//the name of exercise
         return view('member', compact('exercises'));
     }
-    public function delete(){}
-    public function store(){}
-    public function edit(){}
-    public function update(){}
+    public function delete($id){
+        // dd($id);
+        Exercise::where('user_id', auth()->user()->id)
+        ->where('id', $id)
+        ->delete();
+        return redirect()->back();
+    }
+    public function store(Request $request){
+        // dd($request->all());
+        $exercises = new Exercise();
+        $exercises->name= $request->ExerciseName;
+        $exercises->user_id = auth()->user()->id; 
+        // dd(auth()->user()->id);
+        $exercises->save();
+        return redirect()->back();
+        }
+    public function edit( Request $request, $id){
+        // dd($id);
+        $exercises = Exercise::find($id);
+        $exercises->name= $request->ExerciseName;
+        $exercises->user_id = auth()->user()->id; 
+        $exercises->save();
+        return redirect()->back();
+
+    }
+    // public function update(){}
 }

@@ -81,18 +81,18 @@
                                         <span class="exercise-date">{{ $exercise->created_at }}</span>
                                     </div>
                                     <div>
-                                        <button class="btn btn-primary edit-btn">Edit</button>
-                                        <button class="btn btn-danger delete-btn">Delete</button>
+                                        <button class="btn btn-primary edit-btn editExercise" >Edit</button>
+                                        @method('DELETE')
+                                        <button class="btn btn-danger delete-btn" onclick="location.href='{{ url('/deleteExercise/' . $exercise->id) }}'">Delete</button>
                                     </div>
                                 </li>
                             @endforeach
                         </ul>
                     </div>
-                    <form class="exercise-form exercise-list-container p-4">
+                    <form class="exercise-form exercise-list-container p-4" method="POST" action="{{url('/storeExercise')}}">
                         @csrf
-                        {{-- بدونها كان بيعمل اكسباير للصفحة كل ما أضغط على أي حاجة أو اعمل تحديث --}}
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control form-control-sm rounded-left"
+                            <input type="text" class="form-control form-control-sm rounded-left" name="ExerciseName"
                                 placeholder="Exercise name">
                             <div class="input-group-append">
                                 <button class="btn btn-success btn-sm rounded-right add_exercise" type="submit">Add Exercise</button>
@@ -118,5 +118,5 @@
             </div>
         </section>
     </div>
-    {{-- @extends('layouts.add_exercise_modal') --}}
-@endsection
+    @extends('layouts.edit_exercise_modal')
+    @endsection
