@@ -132,3 +132,10 @@ $(document).ready(function() {
       
     });
   });
+//   when i click on .add_exercise  that show modal .add_exercise_modal
+  $(document).ready(function() {
+    $('.add_exercise').click(function() {
+      // Code to show the modal here
+      $('.add_exercise_modal').show();
+    });
+  });
