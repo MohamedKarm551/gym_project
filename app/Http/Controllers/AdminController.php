@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Payment;
+use App\Models\User;
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\PaymentController;
 class AdminController extends Controller
 {
     /**
@@ -12,7 +14,31 @@ class AdminController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index($id)
-    {
+    {   
+        if($id=="payments.makePayment"){
+            // test 01 :
+            // $paymentController = new PaymentController();
+            // $paymentController->index();
+            // 01: error it can't read $members !!!! 
+            // test 02 : 
+            // PaymentController::index(); // error not static
+            // test 03: read the code here : 
+            $userId = auth()->user()->id;
+            $members = User::all()->where("is_admin", 0);//not admin : is member 
+            //  dd($members);
+            return view('payments.makePayment', compact('members'));
+        }
+        if($id=="payments.showPayments"){
+            // $paymentController = new PaymentController();
+            // $paymentController->showPayments();
+            $payments= Payment::all(); //get all payments 
+            // or
+            // $payments = Payment::with('member')->get();
+            //get with model (member) and in blade (<td>{{$payment->member->name}}</td>)
+
+            // dd($payments);
+            return view('payments.showPayments', compact('payments')); 
+        }
         if(view()->exists($id)){
             return view($id);
         }

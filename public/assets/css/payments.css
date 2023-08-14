@@ -1,0 +1,10 @@
+body{
+    font-weight: bold;
+    color: #fff;
+}
+h2.title{
+    margin: 15px auto;
+    width: 95%;
+    display: block;
+    padding: 20px;
+}

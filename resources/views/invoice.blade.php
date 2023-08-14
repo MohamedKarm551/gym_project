@@ -8,6 +8,13 @@
 						<div class="d-flex">
 							<h4 class="content-title mb-0 my-auto">Pages</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ Invoice</span>
 						</div>
+						<div class="control-payments" style="    display: flex;
+						align-content: center;
+						justify-content: center;
+						align-items: center;">
+							<p class="text-muted mt-1 tx-13 mr-2 mb-0"> <a href="{{ url('/payments.makePayment') }}" class="btn btn-success">MAKE PAYMENT</a></p>
+						<p class="text-muted mt-1 tx-13 mr-2 mb-0"> <a href="{{ url('/payments.showPayments') }}" class="btn btn-warning">SHOW  PAYMENTS</a></p>
+						</div>
 					</div>
 					<div class="d-flex my-xl-auto right-content">
 						<div class="pr-1 mb-3 mb-xl-0">

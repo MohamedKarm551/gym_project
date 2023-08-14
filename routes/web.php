@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\members;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RegisterController;
 use App\Models\Member;
 use Illuminate\Support\Facades\Route;
@@ -64,5 +65,11 @@ Route::get('/deleteExercise/{id}',[members::class,'delete']);
 Route::group(['middleware' => ['auth','admin']], function () {
     // Your dashboard and other authenticated routes here...
     Route::get('/{page}', [AdminController::class,'index']);
+    Route::get('/makePayment', [PaymentController::class,'index'])->name('makePayment');
+    Route::post('/storePayment', [PaymentController::class,'store']);
+    Route::get('/{payments.showPayments}', [PaymentController::class,'showPayments']);
     // Route::get('/{page}', 'AdminController@index');
+    // Route::get('/viewTest',function(){
+    //     echo "test";
+    // })->name('testView');
 });
