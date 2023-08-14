@@ -14,4 +14,10 @@ class Member extends User
     {
         return $this->belongsTo(Trainer::class);
     }
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
+    
+    
 }

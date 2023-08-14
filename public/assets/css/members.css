@@ -11,3 +11,34 @@ h1{
     margin: 3px auto;
     display: block !important;
 }
+.exercise-list{
+    text-align: center;
+    padding: 2%;
+    background: #f0f8ff9e;
+    margin: auto;
+}
+.exercise-list li{
+    margin: 20px 0;
+    padding: 1%;
+    border: 1px solid #00000091;
+}
+.iteration{
+    background: gray;
+    color: #fff;
+    font-size: 15px;
+}
+.paymentPaidAt{
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 10px;
+    background: #f0ffff8a;
+    padding: 8px;
+    border-radius: 5px;
+}
+.paymentAmount{
+    background: green;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+}

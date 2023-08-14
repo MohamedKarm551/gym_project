@@ -28,15 +28,20 @@
 
 
         </section>
-        <div class="section">
+        <section class="parallux-area pt-100 pb-100  relative" data-parallax="scroll">
+            <div class="container">
             <h2>Paid Bills</h2>
             <ul class="exercise-list">
                 <!-- List of paid bills will be dynamically added here -->
-                <li>Bill 1</li>
-                <li>Bill 2</li>
-                <li>Bill 3</li>
+                @foreach($payments as $payment)
+               <li>
+               <span class="btn  iteration">{{ $loop->iteration }}</span>
+               <span class="paymentPaidAt">{{$payment->paid_at}} : </span> 
+               <span class="paymentAmount">{{$payment->amount}}</span> </li>
+                @endforeach
             </ul>
-        </div>
+            </div>
+        </section>
         <section class="parallux-area pt-100 pb-100 relative" data-parallax="scroll"
             data-image-src="{{ asset('img/payment.png') }}">
 
@@ -49,7 +54,7 @@
 
 
         </section>
-        <div class="section">
+        {{-- <div class="section">
             <h2>Paid Bills</h2>
             <ul class="exercise-list">
                 <!-- List of paid bills will be dynamically added here -->
@@ -57,7 +62,7 @@
                 <li>Bill 2</li>
                 <li>Bill 3</li>
             </ul>
-        </div>
+        </div> --}}
 
 
         <section class="newsletter-area pt-100 pb-100">

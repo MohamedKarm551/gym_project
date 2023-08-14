@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Exercise;
+use App\Models\Payment;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -28,7 +29,9 @@ class members extends Controller
         $user = User::findOrFail($userId);
         $exercises = $user->exercises()->get();
         //  dd($exercises[1]->name);//the name of exercise
-        return view('member', compact('exercises'));
+        $payments = Payment::all()->where("member_id",$userId);
+        // dd($payments);
+        return view('member', compact('exercises' , 'payments'));
     }
     public function delete($id){
         // dd($id);
