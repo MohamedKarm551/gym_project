@@ -13,7 +13,7 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index($id , Request $request)
     {   
         if($id=="payments.makePayment"){
             // test 01 :
@@ -38,6 +38,26 @@ class AdminController extends Controller
 
             // dd($payments);
             return view('payments.showPayments', compact('payments')); 
+        }
+        if($id=="searchFilter"){
+                $search = $request->search;
+        
+                $payments =Payment::where(function($query) use ($search){
+        
+                    $query->where('paid_at','like',"%$search%")
+                    ->orWhere('amount','like',"%$search%");
+        
+                    })
+                    ->orWhereHas('member',function($query) use($search){
+                        $query->where('name','like',"%$search%");
+                    })
+                    ->orWhereHas('member',function($query) use ($search){
+                        $query->where('email','like',"%$search%");
+                    })
+                    ->get();
+                    
+                    return view('payments.showPayments',compact('payments','search'));
+            
         }
         if(view()->exists($id)){
             return view($id);

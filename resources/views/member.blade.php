@@ -72,6 +72,7 @@
                     <div class="exercise-list-container p-4">
                         <ul class="list-group exercise-list">
                             <!-- List of recorded exercises will be dynamically added here -->
+                            @if(isset($exercises) && $exercises->count() > 0)
                             @foreach ($exercises as $exercise)
                                 <li class="list-group-item d-flex justify-content-between align-items-center mb-2">
                                     <div>
@@ -79,10 +80,7 @@
                                     </div>
                                     <div>
                                         <span class="exercise-name"><strong
-                                                style="
-                  font-weight: bold;
-              ">{{ $exercise->name }}</strong></span>
-                                        at
+                                                style="font-weight: bold;">{{ $exercise->name }}</strong></span>at
                                         <span class="exercise-date">{{ $exercise->created_at }}</span>
                                     </div>
                                     <div>
@@ -92,6 +90,7 @@
                                     </div>
                                 </li>
                             @endforeach
+                            @endif
                         </ul>
                     </div>
                     <form class="exercise-form exercise-list-container p-4" method="POST" action="{{url('/storeExercise')}}">

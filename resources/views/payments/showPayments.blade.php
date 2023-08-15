@@ -15,6 +15,15 @@
         <h2 class="btn btn-info  title">Show Payments</h2>
 
         <div class="table-responsive">
+          <div class="form-group">
+            <form method="get" action="/searchFilter">
+                <div class="input-group">
+                    <input class="form-control" name="search" placeholder="Search..." value="{{ isset($search) ? $search : ''}}">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </form>
+
+        </div>
             <table class="table table-striped">
                 <thead>
                   <tr>
@@ -37,7 +46,7 @@
                 
                 </tbody>
               </table>
-          </div>
+        </div>
     </div>
  </section>
 </body>

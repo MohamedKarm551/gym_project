@@ -68,6 +68,7 @@ Route::group(['middleware' => ['auth','admin']], function () {
     Route::get('/makePayment', [PaymentController::class,'index'])->name('makePayment');
     Route::post('/storePayment', [PaymentController::class,'store']);
     Route::get('/{payments.showPayments}', [PaymentController::class,'showPayments']);
+    Route::get('/searchFilter',[PaymentController::class,'search']);
     // Route::get('/{page}', 'AdminController@index');
     // Route::get('/viewTest',function(){
     //     echo "test";

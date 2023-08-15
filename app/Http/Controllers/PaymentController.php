@@ -30,4 +30,23 @@ class PaymentController extends Controller
         // // dd($payments);
         // return view('payments.showPayments', compact('payments')); 
     }
+    // public function search(Request $request){
+    //     $search = $request->search;
+
+    //     $payments =Payment::where(function($query) use ($search){
+
+    //         $query->where('paid_at','like',"%$search%")
+    //         ->orWhere('amount','like',"%$search%");
+
+    //         })
+    //         ->orWhereHas('users',function($query) use($search){
+    //             $query->where('name','like',"%$search%");
+    //         })
+    //         ->orWhereHas('user',function($query) use ($search){
+    //             $query->where('email','like',"%$search%");
+    //         })
+    //         ->get();
+            
+    //         return view('payments.showPayments',compact('payments','search'));
+    // }
 }
