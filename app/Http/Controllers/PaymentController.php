@@ -11,10 +11,10 @@ class PaymentController extends Controller
 {
     //
     public function  index()  {
-        // $userId = auth()->user()->id;
-        // $members = User::all()->where("is_admin", 0);//not admin : is member 
+        $userId = auth()->user()->id;
+        $members = User::all()->where("is_admin", 0);//not admin : is member 
         // //  dd($members);
-        // return view('payments.makePayment', compact('members'));//error can't read $members
+        return $members;
     }
     public function store(Request $request){
         // dd($request);
@@ -27,26 +27,26 @@ class PaymentController extends Controller
     }
     public function showPayments(){
         // $payments= Payment::all();
-        // // dd($payments);
-        // return view('payments.showPayments', compact('payments')); 
+        $payments= Payment::paginate(10);//not all : but 10 by 10 
+        // dd($payments);
+        return $payments;
     }
-    // public function search(Request $request){
-    //     $search = $request->search;
+    public function search(Request $request){
+        $search = $request->search;
+            $payments =Payment::where(function($query) use ($search){
+        
+                    $query->where('paid_at','like',"%$search%")
+                    ->orWhere('amount','like',"%$search%");
+        
+                    })
+                    ->orWhereHas('member',function($query) use($search){
+                        $query->where('name','like',"%$search%");
+                    })
+                    ->orWhereHas('member',function($query) use ($search){
+                        $query->where('email','like',"%$search%");
+                    })
+                    ->get();
+            return $payments;
+        }
+    }
 
-    //     $payments =Payment::where(function($query) use ($search){
-
-    //         $query->where('paid_at','like',"%$search%")
-    //         ->orWhere('amount','like',"%$search%");
-
-    //         })
-    //         ->orWhereHas('users',function($query) use($search){
-    //             $query->where('name','like',"%$search%");
-    //         })
-    //         ->orWhereHas('user',function($query) use ($search){
-    //             $query->where('email','like',"%$search%");
-    //         })
-    //         ->get();
-            
-    //         return view('payments.showPayments',compact('payments','search'));
-    // }
-}

@@ -17,46 +17,28 @@ class AdminController extends Controller
     {   
         if($id=="payments.makePayment"){
             // test 01 :
-            // $paymentController = new PaymentController();
-            // $paymentController->index();
-            // 01: error it can't read $members !!!! 
-            // test 02 : 
-            // PaymentController::index(); // error not static
-            // test 03: read the code here : 
-            $userId = auth()->user()->id;
-            $members = User::all()->where("is_admin", 0);//not admin : is member 
-            //  dd($members);
+            $paymentController = new PaymentController();
+            $members=$paymentController->index(); 
             return view('payments.makePayment', compact('members'));
         }
         if($id=="payments.showPayments"){
-            // $paymentController = new PaymentController();
-            // $paymentController->showPayments();
-            $payments= Payment::all(); //get all payments 
-            // or
-            // $payments = Payment::with('member')->get();
-            //get with model (member) and in blade (<td>{{$payment->member->name}}</td>)
+            $paymentController = new PaymentController();
+            $payments=$paymentController->showPayments();
+            
+                // $payments= Payment::all(); //get all payments 
+                // or
+                // $payments = Payment::with('member')->get();
+                //get with model (member) and in blade (<td>{{$payment->member->name}}</td>)
 
-            // dd($payments);
+                // dd($payments);
             return view('payments.showPayments', compact('payments')); 
         }
         if($id=="searchFilter"){
                 $search = $request->search;
-        
-                $payments =Payment::where(function($query) use ($search){
-        
-                    $query->where('paid_at','like',"%$search%")
-                    ->orWhere('amount','like',"%$search%");
-        
-                    })
-                    ->orWhereHas('member',function($query) use($search){
-                        $query->where('name','like',"%$search%");
-                    })
-                    ->orWhereHas('member',function($query) use ($search){
-                        $query->where('email','like',"%$search%");
-                    })
-                    ->get();
+                $paymentController = new PaymentController();
+                $payments=$paymentController->search($request);
                     
-                    return view('payments.showPayments',compact('payments','search'));
+                return view('payments.showPayments',compact('payments','search'));
             
         }
         if(view()->exists($id)){

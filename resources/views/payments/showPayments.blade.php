@@ -13,7 +13,13 @@
  <section class="relative pt-10 pb-10 mt-20">
      <div class="container">
         <h2 class="btn btn-info  title">Show Payments</h2>
-
+        <div class="control-payments" style="    display: flex;
+						align-content: center;
+						justify-content: center;
+						align-items: center;margin: 1%;">
+							<p class="text-muted mt-1 tx-13 mr-2 mb-0"> <a href="{{ url('/payments.makePayment') }}" class="btn btn-success">MAKE PAYMENT</a></p>
+						<p class="text-muted mt-1 tx-13 mr-2 mb-0"> <a href="{{ url('/payments.showPayments') }}" class="btn btn-warning">SHOW  PAYMENTS</a></p>
+						</div>
         <div class="table-responsive">
           <div class="form-group">
             <form method="get" action="/searchFilter">
@@ -45,9 +51,10 @@
                     @endforeach
                 
                 </tbody>
-              </table>
+            </table>
+            {{$payments->onEachSide(3)->links()}}
+          </div>
         </div>
-    </div>
  </section>
 </body>
 </html>
