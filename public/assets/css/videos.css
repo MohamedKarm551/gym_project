@@ -1,0 +1,37 @@
+body{
+    background-image: -webkit-linear-gradient(0deg, #2C3E50 0%, rgb(15 15 15 / 85%) 100%);
+
+}
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+    margin: auto;
+    margin-bottom: 15px;
+    width: 70%;
+    border: 1px solid #fff;
+}
+.video-title {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .search-input {
+    margin-bottom: 15px;
+  }
+.video-container iframe, .video-container object, .video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 80%;
+}
+.video-container iframe{
+    top: 15% !important;
+}
+video{
+    width:100%
+    }
