@@ -2,6 +2,19 @@ body{
     background-image: -webkit-linear-gradient(0deg, #2C3E50 0%, rgb(15 15 15 / 85%) 100%);
 
 }
+h1{
+    text-align: center;
+    background: aliceblue;
+    padding: 15px;
+    font-weight: bold;
+}
+.title-Exercises{
+    margin: 10px 0;
+    padding: 5px;
+    font-weight: bold;
+    color: #fff;
+    background: -webkit-linear-gradient(#212529b0, rgb(25 84 123 / 79%));
+}
 .video-container {
     position: relative;
     padding-bottom: 56.25%;
@@ -17,8 +30,21 @@ body{
     font-weight: bold;
     font-size: 20px;
     margin-bottom: 10px;
+    margin: auto;
+    /* border: 0.1px solid #ffffff47; */
+     /* Set initial border properties */
+    border: 2px solid transparent;
+    transition: border 0.3s ease; /* Add a smooth transition effect on hover */
+    text-align: center;
+    padding: 5px;
+    color: #fff;
+    width: 70%;
   }
-  
+  .video-title:hover{
+    border: 2px solid transparent;
+    border-image: -webkit-linear-gradient(0deg, rgb(255, 216, 155) 0%, rgb(25, 84, 123) 100%);
+    border-image-slice: 1;
+  }
   .search-input {
     margin-bottom: 15px;
   }
@@ -31,6 +57,12 @@ body{
 }
 .video-container iframe{
     top: 15% !important;
+    margin: auto;
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    display: block;
+    left: 10%;
 }
 video{
     width:100%
