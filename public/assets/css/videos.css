@@ -64,6 +64,14 @@ h1{
     display: block;
     left: 10%;
 }
+@media (max-width:768px) {
+    .video-container iframe{
+        top:25% !important;
+    }
+    .video-title{
+        font-size: 10px;
+    }
+}
 video{
     width:100%
     }

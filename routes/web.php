@@ -24,10 +24,10 @@ Route::get('/',function(){
 });
 
 
-Route::get('/test',function(){
-    echo '<h1 style="color:red;">TEST GYM</h1>
-    <a href="/logout">logout</a>    ';
-});
+    // Route::get('/test',function(){
+    //     echo '<h1 style="color:red;">TEST GYM</h1>
+    //     <a href="/logout">logout</a>    ';
+    // });
 // register
 Route::get ('/signup',      [RegisterController::class,'create']);
 Route::post('/storeUser',   [RegisterController::class, 'store']);
