@@ -82,7 +82,7 @@ Route::group(['middleware' => ['auth','admin']], function () {
     // Video routes
     Route::post('videos/video/store', [VideosController::class,'storeVideo'])->name('storeVideo');
     Route::put('videos/video/update/{id}', [VideosController::class,'updateVideo'])->name('updateVideo');
-    Route::match(['PUT', 'DELETE'], 'videos/video/update/{id}', [VideosController::class, 'updateVideo'])->name('updateVideo');
+    // Route::match(['PUT', 'DELETE'], 'videos/video/update/{id}', [VideosController::class, 'updateVideo'])->name('updateVideo');
     Route::delete('videos/video/delete/{id}', [VideosController::class,'deleteVideo'])->name('videos.video.delete');
 
 });

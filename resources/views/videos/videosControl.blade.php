@@ -19,6 +19,11 @@
 <body>
     <div class="container">
         <h1 data-toggle="tooltip" data-placement="top" title="قم بالتحكم بفيديوهات موقعك">Control The videos</h1>
+        @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
         <div class="row row-cols-1 row-cols-md-3">
             @foreach ($sections as $section)
                 <div class="col mb-4">
@@ -30,8 +35,7 @@
                                 <p class="bg-warning text-center" data-toggle="tooltip" data-placement="top"
                                     title=" الفيديوهات الموجودة في  هذا السيكشن">Videos of Section</p>
                                 @foreach ($section->videos as $video)
-                                    <li
-                                        class="d-flex justify-content-between align-items-center border rounded p-2 mb-2">
+                                    <li class="border rounded p-2 mb-2">
                                         <form action="{{ route('updateVideo', $video->id) }}" method="POST"
                                             class="update-video-form">
                                             @csrf
@@ -40,18 +44,22 @@
                                             <input type="text" name="video_title" value="{{ $video->title }}"
                                                 class="form-control mr-2 update-video-input">
                                             <input type="text" name="video_url" value="{{ $video->url }}"
-                                            class="form-control mr-2 delete-video-input">
-                                            <form action="{{ route('videos.video.delete', $video->id) }}" method="POST" class="delete-video-form">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-block">Delete Video</button>
-                                            </form>
+                                                class="form-control mr-2 delete-video-input">
                                             <!-- Other fields for editing video as needed -->
                                             <input type="hidden" name="section_id" value="{{ $section->id }}">
                                         </form>
+                                        {{-- delete this video from section  --}}
+                                        <form action="{{ route('videos.video.delete', $video->id) }}"
+                                            class="delete-video-form" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-block mt-2">Delete
+                                                Video</button>
+
+                                        </form>
+
                                     </li>
                                 @endforeach
-
                             </ul>
                             <p class="bg-warning text-center">Name of Section</p>
                             <form action="{{ route('updateSection', $section->id) }}" method="POST">
