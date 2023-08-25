@@ -16,8 +16,6 @@ class VideosController extends Controller
     public function index()
     {
         $sections = Section::with('videos')->get();
-        // dd($sections);
-        // return view('videos.videosControl', compact('sections'));
         return $sections;
     }
     // Section CRUD methods
@@ -28,7 +26,7 @@ class VideosController extends Controller
             // 'slug' => Str::slug($request->input('section_name')),
         ]);
 
-        return redirect()->route('videos.control')->with('success', 'Section added successfully.');
+        return redirect('/videosControl')->with('success', 'Section added successfully.');
     }
 
     public function updateSection(Request $request, $id)
@@ -39,13 +37,13 @@ class VideosController extends Controller
             // 'slug' => Str::slug($request->input('section_name')),
         ]);
 
-        return redirect()->route('videos.control')->with('success', 'Section updated successfully.');
+        return redirect('/videosControl')->with('success', 'Section updated successfully.');
     }
 
     public function deleteSection($id)
     {
         Section::findOrFail($id)->delete();
-        return redirect()->route('videos.control')->with('success', 'Section deleted successfully.');
+        return redirect('/videosControl')->with('success', 'Section deleted successfully.');
     }
 
     // Video CRUD methods
@@ -57,7 +55,7 @@ class VideosController extends Controller
             'url' => $request->input('video_url'),
         ]);
 
-        return redirect()->route('videos.control')->with('success', 'Video added to section successfully.');
+        return redirect('/videosControl')->with('success', 'Video added to section successfully.');
     }
 
     public function updateVideo(Request $request, $id)
@@ -69,12 +67,12 @@ class VideosController extends Controller
             'url' => $request->input('video_url'),
         ]);
 
-        return redirect()->route('videos.control')->with('success', 'Video updated successfully.');
+        return redirect('/videosControl')->with('success', 'Video updated successfully.');
     }
 
     public function deleteVideo($id)
     {
         Video::findOrFail($id)->delete();
-        return redirect()->route('videos.control')->with('success', 'Video deleted successfully.');
+        return redirect()->back()->with('success', 'Video deleted successfully.');
     }
 }

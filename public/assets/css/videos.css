@@ -8,24 +8,14 @@ h1{
     padding: 15px;
     font-weight: bold;
 }
-.title-Exercises{
+.title-exercises{
     margin: 10px 0;
     padding: 5px;
     font-weight: bold;
     color: #fff;
     background: -webkit-linear-gradient(#212529b0, rgb(25 84 123 / 79%));
 }
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    padding-top: 30px;
-    height: 0;
-    overflow: hidden;
-    margin: auto;
-    margin-bottom: 15px;
-    width: 70%;
-    border: 1px solid #fff;
-}
+
 .video-title {
     font-weight: bold;
     font-size: 20px;
@@ -34,7 +24,7 @@ h1{
     /* border: 0.1px solid #ffffff47; */
      /* Set initial border properties */
     border: 2px solid transparent;
-    transition: border 0.3s ease; /* Add a smooth transition effect on hover */
+    transition: border 0.3s ease;
     text-align: center;
     padding: 5px;
     color: #fff;
@@ -48,30 +38,3 @@ h1{
   .search-input {
     margin-bottom: 15px;
   }
-.video-container iframe, .video-container object, .video-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 80%;
-    height: 80%;
-}
-.video-container iframe{
-    top: 15% !important;
-    margin: auto;
-    width: 80%;
-    height: 80%;
-    margin: auto;
-    display: block;
-    left: 10%;
-}
-@media (max-width:768px) {
-    .video-container iframe{
-        top:25% !important;
-    }
-    .video-title{
-        font-size: 10px;
-    }
-}
-video{
-    width:100%
-    }

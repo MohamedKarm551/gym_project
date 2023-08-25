@@ -8,6 +8,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\VideosController;
 use App\Models\Member;
+use App\Models\Section;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,7 +32,10 @@ Route::post('/storeUser',   [RegisterController::class, 'store']);
 Route::get ('/signin', [LoginController::class,'login'])->name("login");
 Route::post('/loginRequest', [LoginController::class,'loginRequest']);
 Route::get('/logout',        [LoginController::class,'logout']);
-Route::get('/videos',function(){return view('videos');});
+Route::get('/videos',function(){
+    $sections = Section::with('videos')->get(); 
+    return view('videos', ['sections' => $sections]);
+});
 // Route::group(['middleware' => 'guest'], function () {
 //     // Your login and register routes here...
 //     // Route::get('/',function(){
@@ -66,18 +70,19 @@ Route::group(['middleware' => ['auth','admin']], function () {
     Route::get('/{payments.showPayments}', [PaymentController::class,'showPayments']);
     Route::get('/searchFilter',[PaymentController::class,'search']);
     // Route::get('/{page}', 'AdminController@index');
-    Route::get('/{videosControl}',[VideosController::class,'index']);
+    Route::get('/{videosControl}',[VideosController::class,'index'])->name('videosControl');
     // 
     // Route::get('videos/control', VideosController::class,'index')->name('videos.control');
     
     // Section routes
-    Route::post('videos/section/store', 'VideosController@storeSection')->name('videos.section.store');
-    Route::put('videos/section/update/{id}', 'VideosController@updateSection')->name('videos.section.update');
-    Route::delete('videos/section/delete/{id}', 'VideosController@deleteSection')->name('videos.section.delete');
+    Route::post('videos/section/store', [VideosController::class,'storeSection'])->name('storeSection');
+    Route::put('videos/section/update/{id}', [VideosController::class,'updateSection'])->name('updateSection');
+    Route::delete('videos/section/delete/{id}', [VideosController::class,'deleteSection'])->name('deleteSection');
     
     // Video routes
-    Route::post('videos/video/store', 'VideosController@storeVideo')->name('videos.video.store');
-    Route::put('videos/video/update/{id}', 'VideosController@updateVideo')->name('videos.video.update');
-    Route::delete('videos/video/delete/{id}', 'VideosController@deleteVideo')->name('videos.video.delete');
+    Route::post('videos/video/store', [VideosController::class,'storeVideo'])->name('storeVideo');
+    Route::put('videos/video/update/{id}', [VideosController::class,'updateVideo'])->name('updateVideo');
+    Route::match(['PUT', 'DELETE'], 'videos/video/update/{id}', [VideosController::class, 'updateVideo'])->name('updateVideo');
+    Route::delete('videos/video/delete/{id}', [VideosController::class,'deleteVideo'])->name('videos.video.delete');
 
 });
