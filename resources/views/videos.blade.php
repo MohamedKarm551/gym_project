@@ -4,6 +4,39 @@
 
         <div class="container">
             <h1>Gym Videos</h1>
+                       <!-- Loop through sections -->
+                       <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                       @foreach ($sections as $section)
+                       <div class="{{ $section->title }}-videos">
+                           <h2 class="title-exercises">{{ $section->title }} Exercises</h2>
+                           <div class="form-group">
+                               <input type="text" class="form-control search-input" data-target=".{{ $section->title }}-videos"
+                                   placeholder="Search videos by title">
+                           </div>
+                           <!-- Carousel and videos for the section -->
+                           <div class="carousel slide" id="carouselExampleIndicators{{ $section->id }}" data-ride="carousel">
+                               <ol class="carousel-indicators">
+                                   <!-- Indicators for videos -->
+                               </ol>
+                               <div class="carousel-inner {{ $section->title }}">
+                                   @foreach ($section->videos as $video)
+                                   <div class="carousel-item">
+                                       <div class="video-container">
+                                           <h3 class="video-title">{{ $video->title }}</h3>
+                                           <iframe width="560" height="315" src="{{ $video->url }}" frameborder="0" allowfullscreen></iframe>
+                                       </div>
+                                   </div>
+                                   @endforeach
+                               </div>
+                           </div>
+                       </div>
+                       @endforeach
+                            </div>
+                            </div>
+                            </div>
+
             <div class="cardio-videos">
                 <div class="col-md-12">
                     <h2 class="title-Exercises">Cardio Exercises</h2>
@@ -24,7 +57,7 @@
                                     <h3 class="video-title">Video 1</h3>
                                     <iframe width="560" height="315"
                                         src="https://www.youtube.com/embed/6cmyFw-Wrrk?si=3pCOSTERKnr7xw1g" frameborder="0"
-                                        allowfullscreen  ></iframe>
+                                        allowfullscreen></iframe>
                                 </div>
                             </div>
                             <div class="carousel-item">
@@ -32,7 +65,7 @@
                                     <h3 class="video-title">Video 2</h3>
                                     <iframe width="560" height="315"
                                         src="https://www.youtube.com/embed/t4-2W7-wfTA?si=vTNH61i5j-whHwEl" frameborder="0"
-                                        allowfullscreen  ></iframe>
+                                        allowfullscreen></iframe>
                                 </div>
                             </div>
                             <div class="carousel-item">
@@ -40,7 +73,7 @@
                                     <h3 class="video-title">Video 3</h3>
                                     <iframe width="560" height="315"
                                         src="https://www.youtube.com/embed/3A0KbfZuil8?si=qCKavFySW9TmMxd4" frameborder="0"
-                                        allowfullscreen  ></iframe>
+                                        allowfullscreen></iframe>
                                 </div>
                             </div>
                             <div class="carousel-item">
@@ -82,8 +115,8 @@
                                 <div class="video-container">
                                     <h3 class="video-title">Video 1</h3>
                                     <iframe width="560" height="315"
-                                        src="https://www.youtube.com/embed/6cmyFw-Wrrk?si=3pCOSTERKnr7xw1g" frameborder="0"
-                                        allowfullscreen></iframe>
+                                        src="https://www.youtube.com/embed/6cmyFw-Wrrk?si=3pCOSTERKnr7xw1g"
+                                        frameborder="0" allowfullscreen></iframe>
                                 </div>
                             </div>
                             <div class="carousel-item">

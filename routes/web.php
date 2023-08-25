@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\members;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\VideosController;
 use App\Models\Member;
 use Illuminate\Support\Facades\Route;
 
@@ -23,11 +24,6 @@ Route::get('/',function(){
     return view('home');
 });
 
-
-    // Route::get('/test',function(){
-    //     echo '<h1 style="color:red;">TEST GYM</h1>
-    //     <a href="/logout">logout</a>    ';
-    // });
 // register
 Route::get ('/signup',      [RegisterController::class,'create']);
 Route::post('/storeUser',   [RegisterController::class, 'store']);
@@ -70,7 +66,18 @@ Route::group(['middleware' => ['auth','admin']], function () {
     Route::get('/{payments.showPayments}', [PaymentController::class,'showPayments']);
     Route::get('/searchFilter',[PaymentController::class,'search']);
     // Route::get('/{page}', 'AdminController@index');
-    // Route::get('/viewTest',function(){
-    //     echo "test";
-    // })->name('testView');
+    Route::get('/{videosControl}',[VideosController::class,'index']);
+    // 
+    // Route::get('videos/control', VideosController::class,'index')->name('videos.control');
+    
+    // Section routes
+    Route::post('videos/section/store', 'VideosController@storeSection')->name('videos.section.store');
+    Route::put('videos/section/update/{id}', 'VideosController@updateSection')->name('videos.section.update');
+    Route::delete('videos/section/delete/{id}', 'VideosController@deleteSection')->name('videos.section.delete');
+    
+    // Video routes
+    Route::post('videos/video/store', 'VideosController@storeVideo')->name('videos.video.store');
+    Route::put('videos/video/update/{id}', 'VideosController@updateVideo')->name('videos.video.update');
+    Route::delete('videos/video/delete/{id}', 'VideosController@deleteVideo')->name('videos.video.delete');
+
 });

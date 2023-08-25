@@ -151,6 +151,7 @@
 							<li><a class="slide-item" href="{{ url('/' . $page='invoice') }}">Invoice</a></li>
 							<li><a class="slide-item" href="{{ url('/' . $page='pricing') }}">Pricing</a></li>
 							<li><a class="slide-item" href="{{ url('/' . $page='gallery') }}">Gallery</a></li>
+							<li><a class="slide-item" href="{{ url('/' . $page='videosControl') }}">Videos</a></li>
 							<li><a class="slide-item" href="{{ url('/' . $page='todotask') }}">Todotask</a></li>
 							<li><a class="slide-item" href="{{ url('/' . $page='faq') }}">Faqs</a></li>
 							<li><a class="slide-item" href="{{ url('/' . $page='empty') }}">Empty Page</a></li>

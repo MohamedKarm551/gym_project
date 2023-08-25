@@ -41,6 +41,13 @@ class AdminController extends Controller
                 return view('payments.showPayments',compact('payments','search'));
             
         }
+        if($id=="videosControl"){
+            $VideosController = new VideosController();
+            $sections= $VideosController->index();
+            // dd($sections);
+            return view('videos.videosControl', compact('sections'));
+
+        }
         if(view()->exists($id)){
             return view($id);
         }
