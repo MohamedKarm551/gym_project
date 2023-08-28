@@ -148,3 +148,37 @@ $(document).ready(function() {
         }
       });
   });
+  // change the images in nav  
+    // Array of image objects with filename and width
+    var images = [
+      { filename: "img/nav01.png", width: "50px" },
+      { filename: "img/nav02.png", width: "50px" },
+      { filename: "img/nav03.png", width: "80px" },
+      { filename: "img/nav04.png", width: "90px" },
+      { filename: "img/nav05.png", width: "80px" },
+      { filename: "img/nav06.png", width: "80px" },
+      { filename: "img/nav07.png", width: "80px" }
+  ];
+  var currentIndex = 0; // Variable to keep track of the current image index
+
+  // Function to change the image
+  function changeImage() {
+    var imgElements = document.querySelectorAll("#dynamic-image");
+    
+    // Change the src and width attributes of all dynamic-image elements
+    imgElements.forEach(function(img) {
+      img.src = images[currentIndex].filename; // Set the image source based on the current image index
+      img.style.width = images[currentIndex].width; // Set the width of the image based on the current image index
+      currentIndex++; // Increment the current image index
+      if (currentIndex >= images.length) {
+        currentIndex = 0; // Reset the index to loop back to the first image
+      }
+    }); // <-- Add this closing parenthesis
+  }
+  
+  // Change the image when the page is loaded
+  changeImage();
+  
+  // Change the image every 30 seconds
+  setInterval(changeImage, 30000); // 30000 milliseconds = 30 seconds
+  
