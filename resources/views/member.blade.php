@@ -1,9 +1,17 @@
 @extends('layouts.masterMember')
 @section('member')
     <div class="overlay overlay-bg"></div>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <span class="navbar-text">
+                Welcome, <span style=" font-weight: bold;
+                color: blue;">{{ Auth::user()->name }}</span>
+            </span>
+            <a href="/logout" class="btn btn-danger ml-auto">Logout</a>
+        </div>
+    </nav>
     <div class="container">
-        <h1>{{ Auth::user()->name }}</h1>
-        <a href="/logout" class="logout btn btn-danger relative">logout</a>
         <section class="parallux-area pt-100 pb-100 relative" data-parallax="scroll"
             data-image-src="{{ asset('img/gym01.png') }}">
 

@@ -1,7 +1,34 @@
 @extends('videos.masterVideos')
 @section('videos')
     <div class="videos">
-
+  <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+            <a class="navbar-brand" href="{{url('/')}}">
+                <div class="logo">
+                    <img src="img/logo(3).png" alt="logo" style="width:70px">
+                </div>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/videos">Videos <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
         <div class="container">
             <h1>Gym Videos</h1>
             {{-- loop for sections --}}

@@ -2,6 +2,16 @@ body{
     background-image: -webkit-linear-gradient(0deg, #2C3E50 0%, rgb(15 15 15 / 85%) 100%);
 
 }
+        /* Custom styles */
+        .navbar-dark {
+          background-color: #343a40; /* Dark background color */
+      }
+      .navbar-dark .navbar-brand {
+          color: white; /* White text color for the brand */
+      }
+      .navbar-dark .navbar-nav .nav-link {
+          color: white; /* White text color for the links */
+      }
 h1{
     text-align: center;
     background: aliceblue;
