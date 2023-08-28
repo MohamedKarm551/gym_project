@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\members;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\VideosController;
 use App\Models\Member;
 use App\Models\Section;
@@ -32,6 +33,8 @@ Route::post('/storeUser',   [RegisterController::class, 'store']);
 Route::get ('/signin', [LoginController::class,'login'])->name("login");
 Route::post('/loginRequest', [LoginController::class,'loginRequest']);
 Route::get('/logout',        [LoginController::class,'logout']);
+Route::get('auth/google',[SocialiteController::class,'redirectToGoogle']);
+Route::get('auth/google/callback',[SocialiteController::class,'handleGoogleCallBack']);
 Route::get('/videos',function(){
     $sections = Section::with('videos')->get(); 
     return view('videos', ['sections' => $sections]);

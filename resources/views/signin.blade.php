@@ -41,7 +41,7 @@
 														<button class="btn btn-block"><i class="fab fa-facebook-f"></i> Signup with Facebook</button>
 													</div>
 													<div class="col-sm-6 mg-t-10 mg-sm-t-0">
-														<button class="btn btn-info btn-block"><i class="fab fa-twitter"></i> Signup with Twitter</button>
+														<button class="btn  btn-block btn-google""><i class="fab fa-google"></i> <a style="color:#fff" href="auth/google">SignIn with Google</a></button>
 													</div>
 												</div>
 											</form>

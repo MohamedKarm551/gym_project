@@ -19,6 +19,8 @@ class User extends Authenticatable
         'email',
         'password',
         'is_admin', // Add 'is_admin' to fillable attributes
+        'social_id',  
+        'social_type',  
         
     ];
 

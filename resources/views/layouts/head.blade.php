@@ -17,3 +17,5 @@
 <link href="{{URL::asset('assets/css/style-dark.css')}}" rel="stylesheet">
 <!---Skinmodes css-->
 <link href="{{URL::asset('assets/css/skin-modes.css')}}" rel="stylesheet">
+{{-- customer css --}}
+<link href="{{URL::asset('assets/css/signUpAndIn.css')}}" rel="stylesheet">
